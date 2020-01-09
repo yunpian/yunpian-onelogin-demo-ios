@@ -1,0 +1,13 @@
+ 
+target 'YPOneLoginDemo' do
+	platform :ios, "8.0"
+    pod 'Bugly'
+    pod 'YYText'
+    pod 'IQKeyboardManager'
+    pod 'Masonry'
+    pod 'AFNetworking'
+    pod 'YYModel'
+end
+
+
+

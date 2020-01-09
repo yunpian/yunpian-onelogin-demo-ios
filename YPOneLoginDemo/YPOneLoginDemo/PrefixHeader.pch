@@ -1,0 +1,36 @@
+//
+//  PrefixHeader.pch
+//  YPOneLoginDemo
+//
+//  Created by qipeng_yuhao on 2019/11/12.
+//  Copyright © 2019 QiPeng. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <Masonry.h>
+#import <YYModel.h>
+#import <AFNetworking.h>
+#import <YPOneLogin/YPOneLogin.h>
+
+
+#import "Strings.h"
+#import "MBProgressHUD.h"
+#import "VerifyService.h"
+#import "QPCFunctionConst.h"
+#import "ToastUtil.h"
+#import "NSDictionary+changeNSString.h"
+#import "NSObject+YPOModelToDic.h"
+#import "Utils/NSString+extension.h"
+#import "TypesFormUtil.h"
+
+
+#import "AppDelegate.h"
+#import "YPRootViewController.h"
+#import "YPHomeViewController.h"
+#import "YPOneLoginsViewController.h"
+#import "YPOneLoginSuccessViewController.h"
+
+
+#endif /* PrefixHeader_pch */

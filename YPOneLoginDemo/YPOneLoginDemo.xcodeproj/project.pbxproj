@@ -1,0 +1,1028 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE0879D62294F3BD0060D4ED /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0879CE2294F3BC0060D4ED /* MBProgressHUD.m */; };
+		AE0879D72294F3BD0060D4ED /* CommonToastHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0879CF2294F3BC0060D4ED /* CommonToastHUD.m */; };
+		AE0879D82294F3BD0060D4ED /* WaitLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0879D32294F3BC0060D4ED /* WaitLoadView.m */; };
+		AE0879D92294F3BD0060D4ED /* WaitLoadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE0879D52294F3BC0060D4ED /* WaitLoadView.xib */; };
+		AE087A402295365B0060D4ED /* VerifyService.m in Sources */ = {isa = PBXBuildFile; fileRef = AE087A3F2295365B0060D4ED /* VerifyService.m */; };
+		AEAFFAD82292440600E934DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAFFAD72292440600E934DC /* AppDelegate.m */; };
+		AEAFFADE2292440600E934DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEAFFADC2292440600E934DC /* Main.storyboard */; };
+		AEAFFAE02292440700E934DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEAFFADF2292440700E934DC /* Assets.xcassets */; };
+		AEAFFAE32292440700E934DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEAFFAE12292440700E934DC /* LaunchScreen.storyboard */; };
+		AEAFFAE62292440700E934DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAFFAE52292440700E934DC /* main.m */; };
+		AEAFFAF02292440700E934DC /* YPVerifyAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAFFAEF2292440700E934DC /* YPVerifyAppTests.m */; };
+		AEAFFAFB2292440700E934DC /* YPVerifyAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAFFAFA2292440700E934DC /* YPVerifyAppUITests.m */; };
+		AEF0CB31229FBC2900B0058F /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF0CB2F229FBC2800B0058F /* libc++.1.tbd */; };
+		AEF0CB33229FBC3100B0058F /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF0CB32229FBC3100B0058F /* libz.1.2.8.tbd */; };
+		AEF0CB4E229FC43C00B0058F /* DemoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF0CB4D229FC43C00B0058F /* DemoUtil.m */; };
+		C7C4857EBC5144B2594F8C96 /* libPods-YPOneLoginDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A63A1D0BE64BC011C53219A0 /* libPods-YPOneLoginDemo.a */; };
+		F31741A8237D9BBC00C79777 /* NSString+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F31741A7237D9BBC00C79777 /* NSString+extension.m */; };
+		F31E789823B0C18D00D4C1F4 /* YPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31E789723B0C18D00D4C1F4 /* YPHomeViewController.m */; };
+		F329D466238CD1CF00AF0EE7 /* YPLSetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F329D463238CD1CF00AF0EE7 /* YPLSetUtil.m */; };
+		F329D469238CD1F300AF0EE7 /* NSObject+YPOModelToDic.m in Sources */ = {isa = PBXBuildFile; fileRef = F329D467238CD1F300AF0EE7 /* NSObject+YPOModelToDic.m */; };
+		F3463AF82386409600DF8E70 /* YPDeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F3463AF72386409600DF8E70 /* YPDeviceUtil.m */; };
+		F3463AFB23864AC500DF8E70 /* YPKeychainStoreUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F3463AFA23864AC500DF8E70 /* YPKeychainStoreUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F36FB8FC2382A13200177ED9 /* TypesFormUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F36FB8FB2382A13200177ED9 /* TypesFormUtil.m */; };
+		F3B97A41237D25DC009E4824 /* ToastUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B97A40237D25DC009E4824 /* ToastUtil.m */; };
+		F3B97A44237D27E1009E4824 /* NSDictionary+changeNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B97A43237D27E1009E4824 /* NSDictionary+changeNSString.m */; };
+		F3D39246239518CD00BB5715 /* TYRZSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3D39245239518CD00BB5715 /* TYRZSDK.framework */; };
+		F3E6C076239101C900AFF263 /* YPOneLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3E6C075239101C900AFF263 /* YPOneLogin.framework */; };
+		F3E6C07B2391104A00AFF263 /* TYRZResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3E6C0792391104A00AFF263 /* TYRZResource.bundle */; };
+		F3E6C07C2391104A00AFF263 /* OneLoginResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3E6C07A2391104A00AFF263 /* OneLoginResource.bundle */; };
+		F3F74BFC23BF115C00280B07 /* YPRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F74BE523BF115C00280B07 /* YPRootViewController.m */; };
+		F3F74BFD23BF115C00280B07 /* SuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3F74BE723BF115C00280B07 /* SuccessViewController.xib */; };
+		F3F74BFE23BF115C00280B07 /* YPOneLoginSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F74BE823BF115C00280B07 /* YPOneLoginSuccessViewController.m */; };
+		F3F74BFF23BF115C00280B07 /* SuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F74BE923BF115C00280B07 /* SuccessViewController.m */; };
+		F3F74C0023BF115C00280B07 /* LoginCustomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F74BED23BF115C00280B07 /* LoginCustomModel.m */; };
+		F3F74C0123BF115C00280B07 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F74BF223BF115C00280B07 /* NavigationView.m */; };
+		F3F74C0223BF115C00280B07 /* LoginCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F74BF323BF115C00280B07 /* LoginCustomView.m */; };
+		F3F74C0323BF115C00280B07 /* BackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F74BF423BF115C00280B07 /* BackButton.m */; };
+		F3F74C0423BF115C00280B07 /* YPOneLoginsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F74BF723BF115C00280B07 /* YPOneLoginsViewController.m */; };
+		F3F74C0523BF115C00280B07 /* DisplayIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F74BFA23BF115C00280B07 /* DisplayIconView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AEAFFAEC2292440700E934DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEAFFACB2292440600E934DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AEAFFAD22292440600E934DC;
+			remoteInfo = YPVerifyApp;
+		};
+		AEAFFAF72292440700E934DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEAFFACB2292440600E934DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AEAFFAD22292440600E934DC;
+			remoteInfo = YPVerifyApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2890C56721A96DB578594C14 /* Pods-YPOneLoginDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YPOneLoginDemo.release.xcconfig"; path = "../../../Pods/Target Support Files/Pods-YPOneLoginDemo/Pods-YPOneLoginDemo.release.xcconfig"; sourceTree = "<group>"; };
+		4818D2EEE9AD8AA44747E080 /* Pods-YPOneLoginDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YPOneLoginDemo.debug.xcconfig"; path = "../../../Pods/Target Support Files/Pods-YPOneLoginDemo/Pods-YPOneLoginDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		A63A1D0BE64BC011C53219A0 /* libPods-YPOneLoginDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YPOneLoginDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE0879CE2294F3BC0060D4ED /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		AE0879CF2294F3BC0060D4ED /* CommonToastHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonToastHUD.m; sourceTree = "<group>"; };
+		AE0879D02294F3BC0060D4ED /* WaitLoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitLoadView.h; sourceTree = "<group>"; };
+		AE0879D12294F3BC0060D4ED /* QPDemoDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPDemoDefine.h; sourceTree = "<group>"; };
+		AE0879D22294F3BC0060D4ED /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		AE0879D32294F3BC0060D4ED /* WaitLoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitLoadView.m; sourceTree = "<group>"; };
+		AE0879D42294F3BC0060D4ED /* CommonToastHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonToastHUD.h; sourceTree = "<group>"; };
+		AE0879D52294F3BC0060D4ED /* WaitLoadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitLoadView.xib; sourceTree = "<group>"; };
+		AE087A3E2295365B0060D4ED /* VerifyService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifyService.h; sourceTree = "<group>"; };
+		AE087A3F2295365B0060D4ED /* VerifyService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VerifyService.m; sourceTree = "<group>"; };
+		AEAFFAD32292440600E934DC /* YPOneLoginDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YPOneLoginDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEAFFAD62292440600E934DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AEAFFAD72292440600E934DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AEAFFADD2292440600E934DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AEAFFADF2292440700E934DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AEAFFAE22292440700E934DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AEAFFAE42292440700E934DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEAFFAE52292440700E934DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AEAFFAEB2292440700E934DC /* YPOneLoginDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YPOneLoginDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEAFFAEF2292440700E934DC /* YPVerifyAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPVerifyAppTests.m; sourceTree = "<group>"; };
+		AEAFFAF12292440700E934DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEAFFAF62292440700E934DC /* YPOneLoginDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YPOneLoginDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEAFFAFA2292440700E934DC /* YPVerifyAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPVerifyAppUITests.m; sourceTree = "<group>"; };
+		AEAFFAFC2292440700E934DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEF0CB2F229FBC2800B0058F /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		AEF0CB32229FBC3100B0058F /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
+		AEF0CB4C229FC43C00B0058F /* DemoUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoUtil.h; sourceTree = "<group>"; };
+		AEF0CB4D229FC43C00B0058F /* DemoUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoUtil.m; sourceTree = "<group>"; };
+		F31741A6237D9BBC00C79777 /* NSString+extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+extension.h"; sourceTree = "<group>"; };
+		F31741A7237D9BBC00C79777 /* NSString+extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+extension.m"; sourceTree = "<group>"; };
+		F31E789623B0C18D00D4C1F4 /* YPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPHomeViewController.h; sourceTree = "<group>"; };
+		F31E789723B0C18D00D4C1F4 /* YPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPHomeViewController.m; sourceTree = "<group>"; };
+		F329D463238CD1CF00AF0EE7 /* YPLSetUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPLSetUtil.m; sourceTree = "<group>"; };
+		F329D464238CD1CF00AF0EE7 /* QPCFunctionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPCFunctionConst.h; sourceTree = "<group>"; };
+		F329D465238CD1CF00AF0EE7 /* YPLSetUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPLSetUtil.h; sourceTree = "<group>"; };
+		F329D467238CD1F300AF0EE7 /* NSObject+YPOModelToDic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YPOModelToDic.m"; sourceTree = "<group>"; };
+		F329D468238CD1F300AF0EE7 /* NSObject+YPOModelToDic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YPOModelToDic.h"; sourceTree = "<group>"; };
+		F3463AF62386409600DF8E70 /* YPDeviceUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YPDeviceUtil.h; sourceTree = "<group>"; };
+		F3463AF72386409600DF8E70 /* YPDeviceUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPDeviceUtil.m; sourceTree = "<group>"; };
+		F3463AF923864AC500DF8E70 /* YPKeychainStoreUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YPKeychainStoreUtil.h; sourceTree = "<group>"; };
+		F3463AFA23864AC500DF8E70 /* YPKeychainStoreUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPKeychainStoreUtil.m; sourceTree = "<group>"; };
+		F355E23C237C12FD008440D2 /* Strings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Strings.h; sourceTree = "<group>"; };
+		F35FB380237ABF24004B53F3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		F36FB8FA2382A13200177ED9 /* TypesFormUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypesFormUtil.h; sourceTree = "<group>"; };
+		F36FB8FB2382A13200177ED9 /* TypesFormUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TypesFormUtil.m; sourceTree = "<group>"; };
+		F37666B3237E64470006C7BA /* YPOneLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YPOneLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3B97A3F237D25DC009E4824 /* ToastUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToastUtil.h; sourceTree = "<group>"; };
+		F3B97A40237D25DC009E4824 /* ToastUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToastUtil.m; sourceTree = "<group>"; };
+		F3B97A42237D27E1009E4824 /* NSDictionary+changeNSString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+changeNSString.h"; sourceTree = "<group>"; };
+		F3B97A43237D27E1009E4824 /* NSDictionary+changeNSString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+changeNSString.m"; sourceTree = "<group>"; };
+		F3D39245239518CD00BB5715 /* TYRZSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TYRZSDK.framework; sourceTree = "<group>"; };
+		F3E6C075239101C900AFF263 /* YPOneLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YPOneLogin.framework; sourceTree = "<group>"; };
+		F3E6C0792391104A00AFF263 /* TYRZResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TYRZResource.bundle; sourceTree = "<group>"; };
+		F3E6C07A2391104A00AFF263 /* OneLoginResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = OneLoginResource.bundle; sourceTree = "<group>"; };
+		F3F74BE423BF115C00280B07 /* SuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuccessViewController.h; sourceTree = "<group>"; };
+		F3F74BE523BF115C00280B07 /* YPRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPRootViewController.m; sourceTree = "<group>"; };
+		F3F74BE623BF115C00280B07 /* YPOneLoginSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPOneLoginSuccessViewController.h; sourceTree = "<group>"; };
+		F3F74BE723BF115C00280B07 /* SuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessViewController.xib; sourceTree = "<group>"; };
+		F3F74BE823BF115C00280B07 /* YPOneLoginSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPOneLoginSuccessViewController.m; sourceTree = "<group>"; };
+		F3F74BE923BF115C00280B07 /* SuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuccessViewController.m; sourceTree = "<group>"; };
+		F3F74BEA23BF115C00280B07 /* YPRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPRootViewController.h; sourceTree = "<group>"; };
+		F3F74BEC23BF115C00280B07 /* LoginCustomModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCustomModel.h; sourceTree = "<group>"; };
+		F3F74BED23BF115C00280B07 /* LoginCustomModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCustomModel.m; sourceTree = "<group>"; };
+		F3F74BEF23BF115C00280B07 /* LoginCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCustomView.h; sourceTree = "<group>"; };
+		F3F74BF023BF115C00280B07 /* NavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationView.h; sourceTree = "<group>"; };
+		F3F74BF123BF115C00280B07 /* BackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackButton.h; sourceTree = "<group>"; };
+		F3F74BF223BF115C00280B07 /* NavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationView.m; sourceTree = "<group>"; };
+		F3F74BF323BF115C00280B07 /* LoginCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCustomView.m; sourceTree = "<group>"; };
+		F3F74BF423BF115C00280B07 /* BackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackButton.m; sourceTree = "<group>"; };
+		F3F74BF723BF115C00280B07 /* YPOneLoginsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPOneLoginsViewController.m; sourceTree = "<group>"; };
+		F3F74BF823BF115C00280B07 /* YPOneLoginsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPOneLoginsViewController.h; sourceTree = "<group>"; };
+		F3F74BFA23BF115C00280B07 /* DisplayIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayIconView.m; sourceTree = "<group>"; };
+		F3F74BFB23BF115C00280B07 /* DisplayIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayIconView.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AEAFFAD02292440600E934DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3E6C076239101C900AFF263 /* YPOneLogin.framework in Frameworks */,
+				AEF0CB33229FBC3100B0058F /* libz.1.2.8.tbd in Frameworks */,
+				AEF0CB31229FBC2900B0058F /* libc++.1.tbd in Frameworks */,
+				C7C4857EBC5144B2594F8C96 /* libPods-YPOneLoginDemo.a in Frameworks */,
+				F3D39246239518CD00BB5715 /* TYRZSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEAFFAE82292440700E934DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEAFFAF32292440700E934DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		34E1EC98B9299B61CD8800B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4818D2EEE9AD8AA44747E080 /* Pods-YPOneLoginDemo.debug.xcconfig */,
+				2890C56721A96DB578594C14 /* Pods-YPOneLoginDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AE0879CB2294F3710060D4ED /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				AE087A1C229528090060D4ED /* OneLoginSDK */,
+				AE0879CD2294F3BC0060D4ED /* MBProgressHUD */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		AE0879CD2294F3BC0060D4ED /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				AE0879D42294F3BC0060D4ED /* CommonToastHUD.h */,
+				AE0879CF2294F3BC0060D4ED /* CommonToastHUD.m */,
+				AE0879D22294F3BC0060D4ED /* MBProgressHUD.h */,
+				AE0879CE2294F3BC0060D4ED /* MBProgressHUD.m */,
+				AE0879D12294F3BC0060D4ED /* QPDemoDefine.h */,
+				AE0879D02294F3BC0060D4ED /* WaitLoadView.h */,
+				AE0879D32294F3BC0060D4ED /* WaitLoadView.m */,
+				AE0879D52294F3BC0060D4ED /* WaitLoadView.xib */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		AE087A1C229528090060D4ED /* OneLoginSDK */ = {
+			isa = PBXGroup;
+			children = (
+				F3D39245239518CD00BB5715 /* TYRZSDK.framework */,
+				F3E6C07A2391104A00AFF263 /* OneLoginResource.bundle */,
+				F3E6C0792391104A00AFF263 /* TYRZResource.bundle */,
+				F3E6C075239101C900AFF263 /* YPOneLogin.framework */,
+			);
+			path = OneLoginSDK;
+			sourceTree = "<group>";
+		};
+		AE087A30229528860060D4ED /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F329D464238CD1CF00AF0EE7 /* QPCFunctionConst.h */,
+				F329D465238CD1CF00AF0EE7 /* YPLSetUtil.h */,
+				F329D463238CD1CF00AF0EE7 /* YPLSetUtil.m */,
+				AEF0CB4C229FC43C00B0058F /* DemoUtil.h */,
+				AEF0CB4D229FC43C00B0058F /* DemoUtil.m */,
+				F3B97A3F237D25DC009E4824 /* ToastUtil.h */,
+				F3B97A40237D25DC009E4824 /* ToastUtil.m */,
+				F3B97A42237D27E1009E4824 /* NSDictionary+changeNSString.h */,
+				F3B97A43237D27E1009E4824 /* NSDictionary+changeNSString.m */,
+				F31741A6237D9BBC00C79777 /* NSString+extension.h */,
+				F31741A7237D9BBC00C79777 /* NSString+extension.m */,
+				F329D468238CD1F300AF0EE7 /* NSObject+YPOModelToDic.h */,
+				F329D467238CD1F300AF0EE7 /* NSObject+YPOModelToDic.m */,
+				F36FB8FA2382A13200177ED9 /* TypesFormUtil.h */,
+				F36FB8FB2382A13200177ED9 /* TypesFormUtil.m */,
+				F3463AF62386409600DF8E70 /* YPDeviceUtil.h */,
+				F3463AF72386409600DF8E70 /* YPDeviceUtil.m */,
+				F3463AF923864AC500DF8E70 /* YPKeychainStoreUtil.h */,
+				F3463AFA23864AC500DF8E70 /* YPKeychainStoreUtil.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		AE087A3D229534100060D4ED /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				AE087A3E2295365B0060D4ED /* VerifyService.h */,
+				AE087A3F2295365B0060D4ED /* VerifyService.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		AEAFFACA2292440600E934DC = {
+			isa = PBXGroup;
+			children = (
+				AEAFFAD52292440600E934DC /* YPOneLoginDemo */,
+				AEAFFAEE2292440700E934DC /* YPOneLoginDemoTests */,
+				AEAFFAF92292440700E934DC /* YPOneLoginDemoUITests */,
+				AEAFFAD42292440600E934DC /* Products */,
+				F04F6BC58CDC82ACA87DEAB2 /* Frameworks */,
+				34E1EC98B9299B61CD8800B9 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		AEAFFAD42292440600E934DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AEAFFAD32292440600E934DC /* YPOneLoginDemo.app */,
+				AEAFFAEB2292440700E934DC /* YPOneLoginDemoTests.xctest */,
+				AEAFFAF62292440700E934DC /* YPOneLoginDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AEAFFAD52292440600E934DC /* YPOneLoginDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F31E789F23B0CBCD00D4C1F4 /* pages */,
+				AE087A3D229534100060D4ED /* Service */,
+				AE087A30229528860060D4ED /* Utils */,
+				AE0879CB2294F3710060D4ED /* Vendor */,
+				AEAFFAD62292440600E934DC /* AppDelegate.h */,
+				AEAFFAD72292440600E934DC /* AppDelegate.m */,
+				F31E789623B0C18D00D4C1F4 /* YPHomeViewController.h */,
+				F31E789723B0C18D00D4C1F4 /* YPHomeViewController.m */,
+				AEAFFADC2292440600E934DC /* Main.storyboard */,
+				AEAFFADF2292440700E934DC /* Assets.xcassets */,
+				AEAFFAE12292440700E934DC /* LaunchScreen.storyboard */,
+				AEAFFAE42292440700E934DC /* Info.plist */,
+				AEAFFAE52292440700E934DC /* main.m */,
+				F35FB380237ABF24004B53F3 /* PrefixHeader.pch */,
+				F355E23C237C12FD008440D2 /* Strings.h */,
+			);
+			path = YPOneLoginDemo;
+			sourceTree = "<group>";
+		};
+		AEAFFAEE2292440700E934DC /* YPOneLoginDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				AEAFFAEF2292440700E934DC /* YPVerifyAppTests.m */,
+				AEAFFAF12292440700E934DC /* Info.plist */,
+			);
+			path = YPOneLoginDemoTests;
+			sourceTree = "<group>";
+		};
+		AEAFFAF92292440700E934DC /* YPOneLoginDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AEAFFAFA2292440700E934DC /* YPVerifyAppUITests.m */,
+				AEAFFAFC2292440700E934DC /* Info.plist */,
+			);
+			path = YPOneLoginDemoUITests;
+			sourceTree = "<group>";
+		};
+		F04F6BC58CDC82ACA87DEAB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F37666B3237E64470006C7BA /* YPOneLogin.framework */,
+				AEF0CB32229FBC3100B0058F /* libz.1.2.8.tbd */,
+				AEF0CB2F229FBC2800B0058F /* libc++.1.tbd */,
+				A63A1D0BE64BC011C53219A0 /* libPods-YPOneLoginDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F31E789F23B0CBCD00D4C1F4 /* pages */ = {
+			isa = PBXGroup;
+			children = (
+				F3F74BE223BF115C00280B07 /* customPages */,
+				F3F74BF523BF115C00280B07 /* oneloginPages */,
+			);
+			path = pages;
+			sourceTree = "<group>";
+		};
+		F3F74BE223BF115C00280B07 /* customPages */ = {
+			isa = PBXGroup;
+			children = (
+				F3F74BE323BF115C00280B07 /* controller */,
+				F3F74BEB23BF115C00280B07 /* model */,
+				F3F74BEE23BF115C00280B07 /* view */,
+			);
+			path = customPages;
+			sourceTree = "<group>";
+		};
+		F3F74BE323BF115C00280B07 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				F3F74BE423BF115C00280B07 /* SuccessViewController.h */,
+				F3F74BE923BF115C00280B07 /* SuccessViewController.m */,
+				F3F74BE723BF115C00280B07 /* SuccessViewController.xib */,
+				F3F74BE623BF115C00280B07 /* YPOneLoginSuccessViewController.h */,
+				F3F74BE823BF115C00280B07 /* YPOneLoginSuccessViewController.m */,
+				F3F74BEA23BF115C00280B07 /* YPRootViewController.h */,
+				F3F74BE523BF115C00280B07 /* YPRootViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		F3F74BEB23BF115C00280B07 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F3F74BEC23BF115C00280B07 /* LoginCustomModel.h */,
+				F3F74BED23BF115C00280B07 /* LoginCustomModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		F3F74BEE23BF115C00280B07 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F3F74BEF23BF115C00280B07 /* LoginCustomView.h */,
+				F3F74BF023BF115C00280B07 /* NavigationView.h */,
+				F3F74BF123BF115C00280B07 /* BackButton.h */,
+				F3F74BF223BF115C00280B07 /* NavigationView.m */,
+				F3F74BF323BF115C00280B07 /* LoginCustomView.m */,
+				F3F74BF423BF115C00280B07 /* BackButton.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		F3F74BF523BF115C00280B07 /* oneloginPages */ = {
+			isa = PBXGroup;
+			children = (
+				F3F74BF623BF115C00280B07 /* controller */,
+				F3F74BF923BF115C00280B07 /* view */,
+			);
+			path = oneloginPages;
+			sourceTree = "<group>";
+		};
+		F3F74BF623BF115C00280B07 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				F3F74BF723BF115C00280B07 /* YPOneLoginsViewController.m */,
+				F3F74BF823BF115C00280B07 /* YPOneLoginsViewController.h */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		F3F74BF923BF115C00280B07 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F3F74BFA23BF115C00280B07 /* DisplayIconView.m */,
+				F3F74BFB23BF115C00280B07 /* DisplayIconView.h */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AEAFFAD22292440600E934DC /* YPOneLoginDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEAFFAFF2292440700E934DC /* Build configuration list for PBXNativeTarget "YPOneLoginDemo" */;
+			buildPhases = (
+				E89588FA4BC6D5BCB0B14BCC /* [CP] Check Pods Manifest.lock */,
+				AEAFFACF2292440600E934DC /* Sources */,
+				AEAFFAD02292440600E934DC /* Frameworks */,
+				AEAFFAD12292440600E934DC /* Resources */,
+				47C6F3DE888B7030A2446B7D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YPOneLoginDemo;
+			productName = YPVerifyApp;
+			productReference = AEAFFAD32292440600E934DC /* YPOneLoginDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AEAFFAEA2292440700E934DC /* YPOneLoginDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEAFFB022292440700E934DC /* Build configuration list for PBXNativeTarget "YPOneLoginDemoTests" */;
+			buildPhases = (
+				AEAFFAE72292440700E934DC /* Sources */,
+				AEAFFAE82292440700E934DC /* Frameworks */,
+				AEAFFAE92292440700E934DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AEAFFAED2292440700E934DC /* PBXTargetDependency */,
+			);
+			name = YPOneLoginDemoTests;
+			productName = YPVerifyAppTests;
+			productReference = AEAFFAEB2292440700E934DC /* YPOneLoginDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AEAFFAF52292440700E934DC /* YPOneLoginDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEAFFB052292440700E934DC /* Build configuration list for PBXNativeTarget "YPOneLoginDemoUITests" */;
+			buildPhases = (
+				AEAFFAF22292440700E934DC /* Sources */,
+				AEAFFAF32292440700E934DC /* Frameworks */,
+				AEAFFAF42292440700E934DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AEAFFAF82292440700E934DC /* PBXTargetDependency */,
+			);
+			name = YPOneLoginDemoUITests;
+			productName = YPVerifyAppUITests;
+			productReference = AEAFFAF62292440700E934DC /* YPOneLoginDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AEAFFACB2292440600E934DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = QiPeng;
+				TargetAttributes = {
+					AEAFFAD22292440600E934DC = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					AEAFFAEA2292440700E934DC = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = AEAFFAD22292440600E934DC;
+					};
+					AEAFFAF52292440700E934DC = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = AEAFFAD22292440600E934DC;
+					};
+				};
+			};
+			buildConfigurationList = AEAFFACE2292440600E934DC /* Build configuration list for PBXProject "YPOneLoginDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AEAFFACA2292440600E934DC;
+			productRefGroup = AEAFFAD42292440600E934DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AEAFFAD22292440600E934DC /* YPOneLoginDemo */,
+				AEAFFAEA2292440700E934DC /* YPOneLoginDemoTests */,
+				AEAFFAF52292440700E934DC /* YPOneLoginDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AEAFFAD12292440600E934DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3E6C07B2391104A00AFF263 /* TYRZResource.bundle in Resources */,
+				F3F74BFD23BF115C00280B07 /* SuccessViewController.xib in Resources */,
+				F3E6C07C2391104A00AFF263 /* OneLoginResource.bundle in Resources */,
+				AEAFFAE32292440700E934DC /* LaunchScreen.storyboard in Resources */,
+				AE0879D92294F3BD0060D4ED /* WaitLoadView.xib in Resources */,
+				AEAFFAE02292440700E934DC /* Assets.xcassets in Resources */,
+				AEAFFADE2292440600E934DC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEAFFAE92292440700E934DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEAFFAF42292440700E934DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47C6F3DE888B7030A2446B7D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YPOneLoginDemo/Pods-YPOneLoginDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YPOneLoginDemo/Pods-YPOneLoginDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YPOneLoginDemo/Pods-YPOneLoginDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E89588FA4BC6D5BCB0B14BCC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YPOneLoginDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AEAFFACF2292440600E934DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE087A402295365B0060D4ED /* VerifyService.m in Sources */,
+				F3463AFB23864AC500DF8E70 /* YPKeychainStoreUtil.m in Sources */,
+				F3F74C0023BF115C00280B07 /* LoginCustomModel.m in Sources */,
+				F3463AF82386409600DF8E70 /* YPDeviceUtil.m in Sources */,
+				F3F74BFC23BF115C00280B07 /* YPRootViewController.m in Sources */,
+				F3B97A41237D25DC009E4824 /* ToastUtil.m in Sources */,
+				AEAFFAE62292440700E934DC /* main.m in Sources */,
+				F3F74C0223BF115C00280B07 /* LoginCustomView.m in Sources */,
+				F3F74C0523BF115C00280B07 /* DisplayIconView.m in Sources */,
+				F3F74BFE23BF115C00280B07 /* YPOneLoginSuccessViewController.m in Sources */,
+				F31E789823B0C18D00D4C1F4 /* YPHomeViewController.m in Sources */,
+				AEAFFAD82292440600E934DC /* AppDelegate.m in Sources */,
+				F329D469238CD1F300AF0EE7 /* NSObject+YPOModelToDic.m in Sources */,
+				F3F74C0423BF115C00280B07 /* YPOneLoginsViewController.m in Sources */,
+				AE0879D82294F3BD0060D4ED /* WaitLoadView.m in Sources */,
+				F31741A8237D9BBC00C79777 /* NSString+extension.m in Sources */,
+				AE0879D62294F3BD0060D4ED /* MBProgressHUD.m in Sources */,
+				AEF0CB4E229FC43C00B0058F /* DemoUtil.m in Sources */,
+				F3F74C0123BF115C00280B07 /* NavigationView.m in Sources */,
+				F329D466238CD1CF00AF0EE7 /* YPLSetUtil.m in Sources */,
+				AE0879D72294F3BD0060D4ED /* CommonToastHUD.m in Sources */,
+				F3F74BFF23BF115C00280B07 /* SuccessViewController.m in Sources */,
+				F3B97A44237D27E1009E4824 /* NSDictionary+changeNSString.m in Sources */,
+				F36FB8FC2382A13200177ED9 /* TypesFormUtil.m in Sources */,
+				F3F74C0323BF115C00280B07 /* BackButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEAFFAE72292440700E934DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEAFFAF02292440700E934DC /* YPVerifyAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEAFFAF22292440700E934DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEAFFAFB2292440700E934DC /* YPVerifyAppUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AEAFFAED2292440700E934DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AEAFFAD22292440600E934DC /* YPOneLoginDemo */;
+			targetProxy = AEAFFAEC2292440700E934DC /* PBXContainerItemProxy */;
+		};
+		AEAFFAF82292440700E934DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AEAFFAD22292440600E934DC /* YPOneLoginDemo */;
+			targetProxy = AEAFFAF72292440700E934DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AEAFFADC2292440600E934DC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEAFFADD2292440600E934DC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AEAFFAE12292440700E934DC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEAFFAE22292440700E934DC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AEAFFAFD2292440700E934DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AEAFFAFE2292440700E934DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AEAFFB002292440700E934DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4818D2EEE9AD8AA44747E080 /* Pods-YPOneLoginDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = D9875AYV64;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YPOneLoginDemo/Vendor/OneLoginSDK",
+					"$(PROJECT_DIR)/YPOneLoginDemo/Vendor/OnePassSDK",
+					"$(PROJECT_DIR)/YPOneLoginDemo/Vendor",
+					"$(PROJECT_DIR)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/YPOneLoginDemo/PrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/YPOneLoginDemo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 2.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"Masonry\"",
+					"-l\"YYText\"",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Bugly\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunpian.one.login;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AEAFFB012292440700E934DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2890C56721A96DB578594C14 /* Pods-YPOneLoginDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = D9875AYV64;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YPOneLoginDemo/Vendor/OneLoginSDK",
+					"$(PROJECT_DIR)/YPOneLoginDemo/Vendor/OnePassSDK",
+					"$(PROJECT_DIR)/YPOneLoginDemo/Vendor",
+					"$(PROJECT_DIR)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/YPOneLoginDemo/PrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/YPOneLoginDemo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 2.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"Masonry\"",
+					"-l\"YYText\"",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Bugly\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunpian.one.login;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AEAFFB032292440700E934DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YPVerifyAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qipeng.YPVerifyAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YPVerifyApp.app/YPVerifyApp";
+			};
+			name = Debug;
+		};
+		AEAFFB042292440700E934DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YPVerifyAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qipeng.YPVerifyAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YPVerifyApp.app/YPVerifyApp";
+			};
+			name = Release;
+		};
+		AEAFFB062292440700E934DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YPVerifyAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qipeng.YPVerifyAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YPVerifyApp;
+			};
+			name = Debug;
+		};
+		AEAFFB072292440700E934DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YPVerifyAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qipeng.YPVerifyAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YPVerifyApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AEAFFACE2292440600E934DC /* Build configuration list for PBXProject "YPOneLoginDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEAFFAFD2292440700E934DC /* Debug */,
+				AEAFFAFE2292440700E934DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEAFFAFF2292440700E934DC /* Build configuration list for PBXNativeTarget "YPOneLoginDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEAFFB002292440700E934DC /* Debug */,
+				AEAFFB012292440700E934DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEAFFB022292440700E934DC /* Build configuration list for PBXNativeTarget "YPOneLoginDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEAFFB032292440700E934DC /* Debug */,
+				AEAFFB042292440700E934DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEAFFB052292440700E934DC /* Build configuration list for PBXNativeTarget "YPOneLoginDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEAFFB062292440700E934DC /* Debug */,
+				AEAFFB072292440700E934DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AEAFFACB2292440600E934DC /* Project object */;
+}

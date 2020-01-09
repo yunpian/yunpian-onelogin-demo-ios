@@ -1,0 +1,6 @@
+framework module YPOneLogin {
+  umbrella header "YPOneLogin.h"
+
+  export *
+  module * { export * }
+}
