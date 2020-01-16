@@ -13,8 +13,8 @@
 #define AppIDKey @"98b482fc9efa45ddb141e6fd8804cb01"
 
 //开发者替换为自己服务器
-//#define TEST_HOST @"https://mobileauth.yunpian.com"
-#define TEST_HOST @"http://115.159.115.175:8071"
+#define TEST_HOST @"https://mobileauth.yunpian.com"
+//#define TEST_HOST @"http://115.159.115.175:8071"
 #define TEST_ACQUIREPHONE  [NSString stringWithFormat:@"%@%@", TEST_HOST, @"/api/mobileauth/customer/acquirePhone"]
 
 

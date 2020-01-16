@@ -35,18 +35,20 @@
 
 ## 2. Xcode 添加 一键登录 SDK
 
-### 2.1. 解压压缩包
-其中SDK文件夹中为需要接入的工程的框架文件，Demo工程中为演示样例。
-
-### 2.2. 添加一键登录 SDK
+### pod 方式添加库
+```
+pod 'YPOneLogin' '~>2.0.0'
+```
+### 手动添加一键登录 SDK
+### 2.1. 导入YPOneLogin的库和资源
 导⼊SDK目录下的文件，其中主要接⼝在 YPOneLogin.framework 中，其他framework为运营商的框架。
 <img src='./images/fileContent.png'/>
 
-### 2.3. 导入必要的依赖库
+### 2.2. 导入必要的依赖库
 导入系统的两个库：libz.1.2.8.tbd、libc++.1.tbd
 <img src='./images/dependLibs.png'/>
 
-### 2.4. setting设置设置 Other Linker Flags
+### 2.3. setting设置设置 Other Linker Flags
 找到主工程的 target -> Build Setting -> Linking -> Other Linker Flags,将其设置为 -ObjC ,
 如果项目仍有问题，可以再添加-all_load:
 <img src='./images/setting.png'/>
