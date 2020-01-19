@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "yunpian" => "yuhao@yunpian.com" }  
   s.platform     = :ios, '8.0'                  
   s.source       = { :git => "https://github.com/yunpian/yunpian-onelogin-demo-ios.git", :tag => "v2.0.0" }         
-  s.vendored_frameworks = 'YPOneLogin/TYRZSDK.framework'，'YPOneLogin/YPOneLogin.framework'
+  s.vendored_frameworks = 'YPOneLogin/TYRZSDK.framework','YPOneLogin/YPOneLogin.framework'
   s.resources = 'YPOneLogin/OneLoginResource.bundle','YPOneLogin/TYRZResource.boundle','README.md'
   s.requires_arc = true 
   s.frameworks = 'CFNetwork', 'CoreTelephony', 'Foundation', 'SystemConfiguration', 'UIKit'
