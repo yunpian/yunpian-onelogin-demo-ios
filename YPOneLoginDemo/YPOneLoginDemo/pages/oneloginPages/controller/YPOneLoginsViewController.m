@@ -286,6 +286,9 @@
 
     viewModel.supportedInterfaceOrientations = UIInterfaceOrientationMaskAllButUpsideDown;
     viewModel.appLogo = [UIImage imageNamed:@"Shape"];
+    viewModel.naviBackImage = [UIImage imageNamed:@"back"];
+    viewModel.naviBgColor = [UIColor blackColor];
+    viewModel.webNaviBgColor = [UIColor blackColor];
     OLRect logoRect = {80, 0, 0, 0, 0, 0, {80, 80}};
     viewModel.logoRect = logoRect;
     OLRect phoneNumRect = {190, 0, 0, 0, 0, 0, {0, 0}};
@@ -306,6 +309,10 @@
         if ([viewLifeCycle isEqualToString:@"viewDidDisappear:"]) {
             sender.enabled = YES;
         }
+        if ([viewLifeCycle isEqualToString:@"viewWillAppear:"]) {
+            NSLog(@"**** %@",self.navigationController);
+        }
+
     };
     
     viewModel.customUIHandler = ^(UIView * _Nonnull customAreaView) {
@@ -314,6 +321,19 @@
         }];
         [customAreaView addSubview:customView];
     };
+    
+    //授权页隐私条款属性
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    paragraphStyle.paragraphSpacing = 0.0;
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraphStyle.firstLineHeadIndent = 0.0;
+    viewModel.privacyTermsAttributes = @{
+                                         NSForegroundColorAttributeName : UIColor.redColor,
+                                         NSParagraphStyleAttributeName : paragraphStyle,
+                                         NSFontAttributeName : [UIFont systemFontOfSize:12]
+                                         };
+
 
     [self OneLoginFunc:viewModel GestureRec:sender];
 
