@@ -10,7 +10,7 @@
 #define Strings_h
 
 //appid
-#define AppIDKey @"98b482fc9efa45ddb141e6fd8804cb01"
+#define AppIDKey @"474b4c6159e54ace9bb28ab08e8406f2"
 
 //开发者替换为自己服务器
 #define TEST_HOST @"https://mobileauth.yunpian.com"

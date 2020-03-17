@@ -169,7 +169,7 @@
     [self.view addSubview:self.versionInfoLabel];
     
     //上线时注意关闭打印
-    [YPOneLogin setLogEnabled:YES];
+    [YPOneLogin setLogEnabled:NO];
     
     [YPOneLogin startWithAppId:AppIDKey completion:^(NSDictionary * _Nullable result) {
         if ([result[@"status"] integerValue] == 200) {
@@ -301,6 +301,8 @@
     viewModel.authButtonRect = authButtonRect;
     viewModel.sloganRect = sloganRect;
     viewModel.defaultCheckBoxState = NO;
+    OLRect checkBoxRect = {0, 0, 0, 0, 0, 0, {16, 16}}; // 复选框尺寸，默认为12*12
+    viewModel.checkBoxRect = checkBoxRect;
     OLRect termsRect = {VCSizeHeight/2 + 100, 0, 0, 0, 0, 0, {0, 0}};
     viewModel.termsRect = termsRect;
     viewModel.termsAlignment = NSTextAlignmentCenter;
@@ -309,10 +311,6 @@
         if ([viewLifeCycle isEqualToString:@"viewDidDisappear:"]) {
             sender.enabled = YES;
         }
-        if ([viewLifeCycle isEqualToString:@"viewWillAppear:"]) {
-            NSLog(@"**** %@",self.navigationController);
-        }
-
     };
     
     viewModel.customUIHandler = ^(UIView * _Nonnull customAreaView) {

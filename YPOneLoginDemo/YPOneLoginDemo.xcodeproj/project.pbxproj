@@ -34,7 +34,6 @@
 		F3B97A44237D27E1009E4824 /* NSDictionary+changeNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B97A43237D27E1009E4824 /* NSDictionary+changeNSString.m */; };
 		F3D39246239518CD00BB5715 /* TYRZSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3D39245239518CD00BB5715 /* TYRZSDK.framework */; };
 		F3E6C076239101C900AFF263 /* YPOneLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3E6C075239101C900AFF263 /* YPOneLogin.framework */; };
-		F3E6C07B2391104A00AFF263 /* TYRZResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3E6C0792391104A00AFF263 /* TYRZResource.bundle */; };
 		F3E6C07C2391104A00AFF263 /* OneLoginResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3E6C07A2391104A00AFF263 /* OneLoginResource.bundle */; };
 		F3F74BFC23BF115C00280B07 /* YPRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F74BE523BF115C00280B07 /* YPRootViewController.m */; };
 		F3F74BFD23BF115C00280B07 /* SuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3F74BE723BF115C00280B07 /* SuccessViewController.xib */; };
@@ -121,7 +120,6 @@
 		F3B97A43237D27E1009E4824 /* NSDictionary+changeNSString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+changeNSString.m"; sourceTree = "<group>"; };
 		F3D39245239518CD00BB5715 /* TYRZSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TYRZSDK.framework; sourceTree = "<group>"; };
 		F3E6C075239101C900AFF263 /* YPOneLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YPOneLogin.framework; sourceTree = "<group>"; };
-		F3E6C0792391104A00AFF263 /* TYRZResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TYRZResource.bundle; sourceTree = "<group>"; };
 		F3E6C07A2391104A00AFF263 /* OneLoginResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = OneLoginResource.bundle; sourceTree = "<group>"; };
 		F3F74BE423BF115C00280B07 /* SuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuccessViewController.h; sourceTree = "<group>"; };
 		F3F74BE523BF115C00280B07 /* YPRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPRootViewController.m; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 			children = (
 				F3D39245239518CD00BB5715 /* TYRZSDK.framework */,
 				F3E6C07A2391104A00AFF263 /* OneLoginResource.bundle */,
-				F3E6C0792391104A00AFF263 /* TYRZResource.bundle */,
 				F3E6C075239101C900AFF263 /* YPOneLogin.framework */,
 			);
 			path = OneLoginSDK;
@@ -393,8 +390,8 @@
 		F3F74BF623BF115C00280B07 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				F3F74BF723BF115C00280B07 /* YPOneLoginsViewController.m */,
 				F3F74BF823BF115C00280B07 /* YPOneLoginsViewController.h */,
+				F3F74BF723BF115C00280B07 /* YPOneLoginsViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -513,7 +510,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3E6C07B2391104A00AFF263 /* TYRZResource.bundle in Resources */,
 				F3F74BFD23BF115C00280B07 /* SuccessViewController.xib in Resources */,
 				F3E6C07C2391104A00AFF263 /* OneLoginResource.bundle in Resources */,
 				AEAFFAE32292440700E934DC /* LaunchScreen.storyboard in Resources */,
@@ -838,7 +834,7 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yunpian.one.login;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunpian.mobileauth.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -906,7 +902,7 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yunpian.one.login;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunpian.mobileauth.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;

@@ -120,6 +120,6 @@
 
 #pragma mark - click
 - (void)againClick:(UIButton *)sender{
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 @end

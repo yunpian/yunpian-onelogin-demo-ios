@@ -2,8 +2,8 @@
 //  OLAuthViewModel.h
 //  OneLoginSDK
 //
-//  Created by NikoXu on 2019/3/25.
-//  Copyright © 2019 geetest. All rights reserved.
+//  Created by daizq on 2019/5/14.
+//  Copyright © 2019 QiPeng. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -117,9 +117,24 @@ typedef void(^OLStopLoadingViewBlock)(UIView *containerView);
 typedef void(^OLAuthViewLifeCycleBlock)(NSString *viewLifeCycle, BOOL animated);
 
 /**
- * 点击授权页面授权按钮的回调
+ * 点击授权页面授权按钮的回调，用于监听授权页面登录按钮的点击
  */
 typedef void(^OLClickAuthButtonBlock)(void);
+
+/**
+ * 是否自定义授权页面登录按钮点击事件，用于完全接管授权页面点击事件，当返回 YES 时，可以在 block 中添加自定义操作
+ */
+typedef BOOL(^OLCustomAuthActionBlock)(void);
+
+/**
+ * 点击授权页面返回按钮的回调
+ */
+typedef void(^OLClickBackButtonBlock)(void);
+
+/**
+ * 点击授权页面切换账号按钮的回调
+ */
+typedef void(^OLClickSwitchButtonBlock)(void);
 
 /**
  * 点击授权页面隐私协议前勾选框的回调
@@ -135,6 +150,28 @@ typedef void(^OLTapAuthBackgroundBlock)(void);
  * @abstract 授权页面旋转时的回调，可在该回调中修改自定义视图的frame，以适应新的布局
  */
 typedef void(^OLAuthVCTransitionBlock)(CGSize size, id<UIViewControllerTransitionCoordinator> coordinator, UIView *customAreaView);
+
+/**
+ * @abstract 授权页面视图控件自动布局回调，可在该回调中，对控件通过 masonry 或者其他方式进行自动布局，若需要自定义视图，请直接在该回调中添加
+ *
+ * authView 为 authContentView 的父视图
+ * authContentView 为 authBackgroundImageView、authNavigationView、authLogoView、authPhoneView、authSwitchButton、authLoginButton、authSloganView、authAgreementView、authClosePopupButton 的父视图
+ * authNavigationView 为 authNavigationContainerView 的父视图
+ * authNavigationContainerView 为 authBackButton 和 authNavigationTitleView 的父视图
+ * authAgreementView 为 authCheckbox 和 authProtocolView 的父视图
+ *
+ */
+typedef void(^OLAuthVCAutoLayoutBlock)(UIView *authView, UIView *authContentView, UIView *authBackgroundImageView, UIView *authNavigationView, UIView *authNavigationContainerView, UIView *authBackButton, UIView *authNavigationTitleView, UIView *authLogoView, UIView *authPhoneView, UIView *authSwitchButton, UIView *authLoginButton, UIView *authSloganView, UIView *authAgreementView, UIView *authCheckbox, UIView *authProtocolView, UIView *authClosePopupButton);
+
+/**
+ * @abstract 进入授权页面的方式，默认为 modal 方式，即 present 到授权页面，从授权页面进入服务条款页面的方式与此保持一致
+ *
+ * @discussion push 模式不支持弹窗
+ */
+typedef NS_ENUM(NSInteger, OLPullAuthVCStyle) {
+    OLPullAuthVCStyleModal,
+    OLPullAuthVCStylePush
+};
 
 @interface OLAuthViewModel : NSObject
 
@@ -181,6 +218,11 @@ typedef void(^OLAuthVCTransitionBlock)(CGSize size, id<UIViewControllerTransitio
  返回按钮隐藏。默认不隐藏。
  */
 @property (nonatomic, assign) BOOL backButtonHidden;
+
+/**
+ * 点击授权页面返回按钮的回调
+ */
+@property (nullable, nonatomic, copy) OLClickBackButtonBlock clickBackButtonBlock;
 
 #pragma mark - Logo/图标
 
@@ -234,6 +276,11 @@ typedef void(^OLAuthVCTransitionBlock)(CGSize size, id<UIViewControllerTransitio
 @property (nullable, nonatomic, strong) UIColor *switchButtonColor;
 
 /**
+ 授权页切换账号按钮背景颜色。默认为 nil。
+ */
+@property (nullable, nonatomic, strong) UIColor *switchButtonBackgroundColor;
+
+/**
  授权页切换账号的字体。默认字体，15pt。
  */
 @property (nullable, nonatomic, strong) UIFont *switchButtonFont;
@@ -247,6 +294,11 @@ typedef void(^OLAuthVCTransitionBlock)(CGSize size, id<UIViewControllerTransitio
  隐藏切换账号按钮。默认不隐藏。
  */
 @property (nonatomic, assign) BOOL switchButtonHidden;
+
+/**
+ * 点击授权页面切换账号按钮的回调
+ */
+@property (nullable, nonatomic, copy) OLClickSwitchButtonBlock clickSwitchButtonBlock;
 
 #pragma mark - Authorization Button/认证按钮
 
@@ -271,9 +323,14 @@ typedef void(^OLAuthVCTransitionBlock)(CGSize size, id<UIViewControllerTransitio
 @property (nonatomic, assign) CGFloat authButtonCornerRadius;
 
 /**
- * 点击授权页面授权按钮的回调
+ * 点击授权页面授权按钮的回调，用于监听授权页面登录按钮的点击
  */
 @property (nullable, nonatomic, copy) OLClickAuthButtonBlock clickAuthButtonBlock;
+
+/**
+ * 自定义授权页面登录按钮点击事件，用于完全接管授权页面点击事件，当返回 YES 时，可以在 block 中添加自定义操作
+ */
+@property (nullable, nonatomic, copy) OLCustomAuthActionBlock customAuthActionBlock;
 
 #pragma mark - Slogan/口号标语
 
@@ -351,9 +408,19 @@ typedef void(^OLAuthVCTransitionBlock)(CGSize size, id<UIViewControllerTransitio
 @property (nullable, nonatomic, copy) OLClickCheckboxBlock clickCheckboxBlock;
 
 /**
-* 服务条款文案对齐方式，默认为NSTextAlignmentLeft
-*/
+ * 服务条款文案对齐方式，默认为NSTextAlignmentLeft
+ */
 @property (nonatomic, assign) NSTextAlignment termsAlignment;
+
+/**
+ * 点击授权页面运营商隐私协议的回调
+ */
+@property (nullable, nonatomic, copy) OLViewPrivacyTermItemBlock carrierTermItemBlock;
+
+/**
+ * 是否在运营商协议名称上加书名号《》
+ */
+@property (nonatomic, assign) BOOL hasQuotationMarkOnCarrierProtocol;
 
 #pragma mark - Custom Area/自定义区域
 
@@ -388,6 +455,13 @@ typedef void(^OLAuthVCTransitionBlock)(CGSize size, id<UIViewControllerTransitio
  横屏模式授权页面背景图片
  */
 @property (nullable, nonatomic, strong) UIImage *landscapeBackgroundImage;
+
+#pragma mark - Autolayout
+
+/**
+ * 授权页面视图控件自动布局回调
+ */
+@property (nullable, nonatomic, copy) OLAuthVCAutoLayoutBlock autolayoutBlock;
 
 #pragma mark - orientationMask
 
@@ -517,6 +591,13 @@ typedef void(^OLAuthVCTransitionBlock)(CGSize size, id<UIViewControllerTransitio
  * dismiss授权页面时的自定义动画
  */
 @property (nonatomic, strong) CAAnimation *modalDismissAnimation;
+
+#pragma mark - OLPullAuthVCStyle
+
+/**
+ * @abstract 进入授权页面的方式，默认为 modal 方式，即 present 到授权页面，从授权页面进入服务条款页面的方式与此保持一致
+ */
+@property (nonatomic, assign) OLPullAuthVCStyle pullAuthVCStyle;
 
 @end
 
