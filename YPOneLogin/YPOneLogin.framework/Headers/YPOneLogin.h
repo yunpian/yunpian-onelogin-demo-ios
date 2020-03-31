@@ -14,24 +14,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol YPOneLoginDelegate <NSObject>
-
-@optional
-
-/**
- 用户点击了授权页面的返回按钮
- */
-- (void)userDidDismissAuthViewController;
-
-/**
- 用户点击了授权页面的"切换账户"按钮
- */
-- (void)userDidSwitchAccount;
-
-@end
 
 @interface YPOneLogin : NSObject
 
+#pragma mark - 一键登录主流程，必调接口
 
 /**
  启动 SDK
@@ -43,28 +29,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 设置代理对象
- 
- @param delegate 代理对象
- */
-+ (void)setDelegate:(nullable id<YPOneLoginDelegate>)delegate;
-
-
-/**
  设置请求超时时长
 
  @param timeout 单位为s，默认为5s
 */
 + (void)setRequestTimeout:(NSTimeInterval)timeout;
-
-
-/**
- 预取号接口（注意：需要初始化完成后调用本接口）
- token的有效期，中国移动的有效期为 2 分钟，中国联通的为 30 分钟，中国电信的为 30 天。
- 
- @param completion 预取号接口回调
- */
-+ (void)preGetTokenWithCompletion:(void(^)(NSDictionary *sender))completion;
 
 
 /**
@@ -77,12 +46,31 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)requestTokenWithViewController:(UIViewController *)viewController viewModel:(nullable OLAuthViewModel *)viewModel completion:(void(^)(NSDictionary * _Nullable result))completion;
 
 
+#pragma mark - 一键登录的其他功能接口
+
+
 /**
- 预取号的token是否还有效，可根据这个判断是否需要加载预取号接口，提高效率
+ 预取号接口（注意：需要初始化完成后调用本接口）
+ token的有效期，中国移动的有效期为 2 分钟，中国联通的为 30 分钟，中国电信的为 30 天。
  
- @return YES 是还在有效期， NO 已失效，需要重新加载预取号接口
-*/
-+ (BOOL)isPreGetTokenValidate;
+ @param completion 预取号接口回调
+ */
++ (void)preGetTokenWithCompletion:(void(^)(NSDictionary *sender))completion;
+
+
+/**
+ 重新拉取预取号，在通过requestTokenWithCompletion方法成功登录之后，为保证用户在退出登录之后，能快速拉起授权页面，请在用户退出登录时，调用此方法
+ *
+ */
++ (void)reAcessPreToken;
+
+
+/**
+ 判断预取号结果是否有效
+ *
+ * @return YES: 预取号结果有效, NO: 预取号结果无效；注意：需加载进度条，等待预取号完成之后拉起授权页面
+ */
++ (BOOL)isPreGetTokenValid;
 
 
 /**
@@ -94,10 +82,18 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)cancelAuthViewController:(BOOL)isAnimal Complete:(void(^__nullable)(void))complete;
 
 
+/**
+获取当前消授权页
+
+* @return 当前授权页的控制器
+*/
++ (UIViewController * _Nullable)currentAuthViewController;
+
+
 #pragma mark - 短信校验码接口
 
 /**
- 短信校验验证界面（注意：调用本接口前要提前调用预取号接口）
+ 短信校验验证界面
  
  @param viewController          调用短信校验的界面
  @param viewModel               界面自定义模型
@@ -122,6 +118,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)smsVerifyCode:(NSString *)code withCallback:(void(^)(NSDictionary *sender))callback;
 
+
+#pragma mark - 关于框架的信息接口
 
 /**
  SDK 版本号

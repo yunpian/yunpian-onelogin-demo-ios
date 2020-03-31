@@ -15,6 +15,7 @@
 @property (strong, nonatomic) UIImageView *logoImageView;
 @property (strong, nonatomic) UILabel *sloganLabel;
 @property (strong, nonatomic) UIButton *loginBtn;
+@property (strong, nonatomic) UIButton *verifyBtn;
 @property (strong, nonatomic) UILabel *versionInfoLabel;
 
 
@@ -71,10 +72,26 @@
     return _loginBtn;
 }
 
+- (UIButton *)verifyBtn{
+    if (!_verifyBtn) {
+        _verifyBtn = [[UIButton alloc] init];
+        _verifyBtn.backgroundColor = Purple0Color;
+        _verifyBtn.layer.masksToBounds = YES;
+        _verifyBtn.layer.cornerRadius = 5.0;
+        [_verifyBtn.titleLabel setFont:[UIFont systemFontOfSize:15]];
+        [_verifyBtn setTitle:@"本机校验" forState:UIControlStateNormal];
+        [_verifyBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+        [_verifyBtn setTitleColor:UIColor.grayColor forState:UIControlStateSelected];
+        [_verifyBtn addTarget:self action:@selector(verifyClick:) forControlEvents:UIControlEventTouchUpInside];
+
+    }
+    return _verifyBtn;
+}
+
 - (UILabel *)versionInfoLabel{
     if (!_versionInfoLabel) {
         _versionInfoLabel = [[UILabel alloc] init];
-        _versionInfoLabel.text = [TEST_HOST isEqualToString:@"https://mobileauth.yunpian.com"]?@"云片移动认证产品体验v2.0.0":@"测试环境";
+        _versionInfoLabel.text = [TEST_HOST isEqualToString:@"https://mobileauth.yunpian.com"]?@"云片移动认证产品体验v2.1.0":@"测试环境";
         _versionInfoLabel.textColor = UIColor.grayColor;
         if (@available(iOS 8.2, *)) {
             _versionInfoLabel.font = [UIFont systemFontOfSize:11 weight:0.5];
@@ -101,6 +118,7 @@
     [self.view addSubview:self.logoImageView];
     [self.view addSubview:self.sloganLabel];
     [self.view addSubview:self.loginBtn];
+    [self.view addSubview:self.verifyBtn];
     [self.view addSubview:self.versionInfoLabel];
     
     
@@ -123,6 +141,14 @@
         make.height.mas_equalTo(60);
         make.top.equalTo(self.sloganLabel.mas_bottom).mas_offset(60);
     }];
+    
+    [_verifyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(20);
+        make.right.mas_equalTo(-20);
+        make.height.mas_equalTo(60);
+        make.top.equalTo(self.loginBtn.mas_bottom).mas_offset(25);
+    }];
+
         
     [_versionInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         if (@available(iOS 11.0, *)) {//注意刘海屏的安全距离
@@ -142,5 +168,11 @@
     YPOneLoginsViewController *ypOneLoginVC = [[YPOneLoginsViewController alloc] init];
     [self.navigationController pushViewController:ypOneLoginVC animated:YES];
 }
+
+- (void)verifyClick:(UIButton *)sender{
+    YPOnePassViewController *ypVerifyVC = [[YPOnePassViewController alloc] init];
+    [self.navigationController pushViewController:ypVerifyVC animated:YES];
+}
+
 
 @end

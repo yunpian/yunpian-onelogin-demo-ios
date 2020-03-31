@@ -15,7 +15,7 @@
 #import "DemoUtil.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
 
-@interface YPOneLoginsViewController ()<DisplayViewDelegate,YPOneLoginDelegate>
+@interface YPOneLoginsViewController ()<DisplayViewDelegate>
 
 @property (strong, nonatomic) UIImageView *bgImageView;
 
@@ -100,7 +100,7 @@
 - (UILabel *)versionInfoLabel{
     if (!_versionInfoLabel) {
         _versionInfoLabel = [[UILabel alloc] init];
-        _versionInfoLabel.text = @"云片移动认证产品体验v2.0.0";
+        _versionInfoLabel.text = [TEST_HOST isEqualToString:@"https://mobileauth.yunpian.com"]?@"云片移动认证产品体验v2.1.0":@"测试环境";
         _versionInfoLabel.textColor = UIColor.whiteColor;
         if (@available(iOS 8.2, *)) {
             _versionInfoLabel.font = [UIFont systemFontOfSize:11 weight:0.5];
@@ -168,36 +168,23 @@
     [self.view addSubview:self.selectModelView];
     [self.view addSubview:self.versionInfoLabel];
     
-    //上线时注意关闭打印
+    // 上线时注意关闭打印
     [YPOneLogin setLogEnabled:NO];
     
+    // 初始化
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [YPOneLogin startWithAppId:AppIDKey completion:^(NSDictionary * _Nullable result) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if ([result[@"status"] integerValue] == 200) {
             DebugLog(@"初始化成功");
         }else{
             DebugLog(@"初始化失败");
         }
     }];
-    
-
-    //在后台提前获取预取号,这个根据需要
-    
-//    [YPOneLogin startWithAppId:AuthServiceDemoIDKey completion:^(NSDictionary * _Nullable result) {
-//        if ([result[@"status"] integerValue] == 200) {
-//
-//            [YPOneLogin preGetTokenWithCompletion:^(NSDictionary * _Nonnull sender) {
-//                DebugLog(@"YPOneLogin preGetToken:%@",sender);
-//            }];
-//        }else{
-//            DebugLog(@"初始化失败");
-//        }
-//    }];
-    
-    [YPOneLogin setDelegate:self];
 }
 
 - (void)viewDidLayoutSubviews{
-
+    
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         if (@available(iOS 11.0, *)) {
             make.top.mas_equalTo(StatusBarH + SafeTop);
@@ -219,16 +206,16 @@
         make.centerX.equalTo(self.view);
         make.bottom.equalTo(self.versionInfoLabel.mas_top).mas_offset(-20);
     }];
-
-
+    
+    
     [_versionInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-    if (@available(iOS 11.0, *)) {
-        make.bottom.mas_equalTo(- (SafeBottom + 10));
-    } else {
-        make.bottom.mas_equalTo(- 10);
-    }
-    make.left.right.mas_equalTo(0);
-}];
+        if (@available(iOS 11.0, *)) {
+            make.bottom.mas_equalTo(- (SafeBottom + 10));
+        } else {
+            make.bottom.mas_equalTo(- 10);
+        }
+        make.left.right.mas_equalTo(0);
+    }];
 }
 
 
@@ -259,20 +246,6 @@
     }
 }
 
-#pragma mark - delegate -> OneLogin
-- (void)userDidSwitchAccount{
-    [YPOneLogin cancelAuthViewController:YES Complete:^{
-        
-    }];
-}
-
-- (void)userDidDismissAuthViewController{
-
-    [YPOneLogin cancelAuthViewController:YES Complete:^{
-        
-    }];
-}
-
 
 #pragma mark - display style
 
@@ -284,41 +257,62 @@
 
     OLAuthViewModel *viewModel = [OLAuthViewModel new];
 
+    // 设置屏幕显示方向
     viewModel.supportedInterfaceOrientations = UIInterfaceOrientationMaskAllButUpsideDown;
+    
+    // 导航栏设置
+    viewModel.naviBackImage = [UIImage imageNamed:@"jiantouB"];// 导航栏返回按钮图片
+    viewModel.naviBgColor = UIColor.whiteColor; // 导航栏背景色
+    OLRect backButtonRect = {0, 0, 20, 0, 0, 0, {0, 0}}; // 返回按钮偏移、大小设置，偏移量和大小设置值需大于0，否则取默认值，默认可不设置
+    viewModel.backButtonRect = backButtonRect;
+
+    
+    // 公司logo设置
     viewModel.appLogo = [UIImage imageNamed:@"Shape"];
-    viewModel.naviBackImage = [UIImage imageNamed:@"back"];
-    viewModel.naviBgColor = [UIColor blackColor];
-    viewModel.webNaviBgColor = [UIColor blackColor];
-    OLRect logoRect = {80, 0, 0, 0, 0, 0, {80, 80}};
+    OLRect logoRect = {80, 0, 0, 0, 0, 0, {80, 80}};//  logo偏移、大小设置，偏移量和大小设置值需大于0，否则取默认值，默认可不设置，logo大小默认为图片大小
+    viewModel.logoHidden = NO; // 是否隐藏logo，默认不隐藏
+    viewModel.logoCornerRadius = 0; // logo圆角，默认为0
     viewModel.logoRect = logoRect;
+    
+    
+    // 手机掩码的设置
     OLRect phoneNumRect = {190, 0, 0, 0, 0, 0, {0, 0}};
     viewModel.phoneNumRect = phoneNumRect;
-    viewModel.switchButtonHidden = YES;
+    
+    
+    // 切换按钮设置
+    viewModel.switchButtonColor = UIColor.orangeColor; // 切换按钮颜色
+    viewModel.switchButtonFont = [UIFont systemFontOfSize:15];  // 切换按钮字体
+    viewModel.switchButtonText = @"切换其他方式";  // 切换按钮文案
+    viewModel.switchButtonHidden = YES; // 是否隐藏切换按钮，默认不隐藏
+    OLRect switchButtonRect = {0, 0, 0, 0, 0, 0, {0, 0}};  // 切换按钮偏移、大小设置，偏移量和大小设置值需大于0，否则取默认值，默认可不设置
+    viewModel.switchButtonRect = switchButtonRect;
+
+    
+    // slogan设置
     viewModel.sloganTextColor = Black0Color;
-       viewModel.sloganTextFont = [UIFont systemFontOfSize:15];
-       OLRect sloganRect = {VCSizeHeight/2 - 30, 0, 0, 0, 0, 0, {0, 0}};
+    viewModel.sloganTextFont = [UIFont systemFontOfSize:15];
+    OLRect sloganRect = {VCSizeHeight/2 - 30, 0, 0, 0, 0, 0, {0, 0}};//slogan偏移、大小设置，偏移量和大小设置值需大于0，否则取默认值，默认可不设置
+    viewModel.sloganRect = sloganRect;
+
+    // 登录按钮设置
     OLRect authButtonRect = {VCSizeHeight/2 + 30, 0, 0, 0, 0, 0, {VCSizeWidth - 60, 50}};
     viewModel.authButtonRect = authButtonRect;
-    viewModel.sloganRect = sloganRect;
-    viewModel.defaultCheckBoxState = NO;
+    viewModel.notCheckProtocolHint = @"请您先同意服务条款"; // 未勾选，点击按钮的文字提示
+    
+    
+    // 复选框的设置
+    viewModel.defaultCheckBoxState = NO;// 是否勾选复选框
     OLRect checkBoxRect = {0, 0, 0, 0, 0, 0, {16, 16}}; // 复选框尺寸，默认为12*12
     viewModel.checkBoxRect = checkBoxRect;
-    OLRect termsRect = {VCSizeHeight/2 + 100, 0, 0, 0, 0, 0, {0, 0}};
-    viewModel.termsRect = termsRect;
-    viewModel.termsAlignment = NSTextAlignmentCenter;
-
-    viewModel.viewLifeCycleBlock = ^(NSString *viewLifeCycle, BOOL animated) {
-        if ([viewLifeCycle isEqualToString:@"viewDidDisappear:"]) {
-            sender.enabled = YES;
-        }
-    };
     
-    viewModel.customUIHandler = ^(UIView * _Nonnull customAreaView) {
-        LoginCustomView *customView = [[LoginCustomView alloc] initWithFrame:CGRectMake(50, VCSizeHeight - 150, VCSizeWidth - 100, 100) Items:weakSelf.itemsArray Complete:^(NSInteger tag) {
-            [weakSelf OtherLoginClick:tag];
-        }];
-        [customAreaView addSubview:customView];
-    };
+    
+    // 协议样式设置
+    OLRect termsRect = {VCSizeHeight/2 + 105, 0, 0, 0, 0, 0, {0, 0}};
+    viewModel.termsRect = termsRect; // 隐私条款 位置及大小
+    viewModel.hasQuotationMarkOnCarrierProtocol = YES;// 协议加上《》
+    viewModel.termsAlignment = NSTextAlignmentCenter; // 协议是否居中显示
+    
     
     //授权页隐私条款属性
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -329,8 +323,51 @@
     viewModel.privacyTermsAttributes = @{
                                          NSForegroundColorAttributeName : UIColor.redColor,
                                          NSParagraphStyleAttributeName : paragraphStyle,
-                                         NSFontAttributeName : [UIFont systemFontOfSize:12]
+                                         NSFontAttributeName : [UIFont systemFontOfSize:14]
                                          };
+    
+    // 服务条款web页面导航栏标题
+       viewModel.webNaviBgColor = UIColor.whiteColor; // 服务条款导航栏背景色
+       viewModel.webNaviHidden = NO;   // 服务条款导航栏是否隐藏
+
+    
+    // 自定义授权页弹出动画
+       viewModel.pullAuthVCStyle = OLPullAuthVCStylePush;
+    
+    //    CATransition *animation = [CATransition animation];
+    //    animation.duration = 0.5;
+    //    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    //    animation.type = kCATransitionPush;
+    //    animation.subtype = kCATransitionFromRight;
+    //    viewModel.modalPresentationAnimation = animation;
+    //
+    //    CATransition *dismissAnimation = [CATransition animation];
+    //    dismissAnimation.duration = 0.5;
+    //    dismissAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    //    dismissAnimation.type = kCATransitionPush;
+    //    dismissAnimation.subtype = kCATransitionFromLeft;
+    //    viewModel.modalDismissAnimation = dismissAnimation;
+
+
+    // 授权页的生命周期
+    viewModel.viewLifeCycleBlock = ^(NSString * _Nonnull viewLifeCycle, BOOL animated) {
+        if ([viewLifeCycle isEqualToString:@"viewDidLoad"]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                sender.enabled = YES;
+            });
+        }
+    };
+    
+    
+    
+    // 自定义区域设置,比如可以设置其他登录方式
+    viewModel.customUIHandler = ^(UIView * _Nonnull customAreaView) {
+        LoginCustomView *customView = [[LoginCustomView alloc] initWithFrame:CGRectMake(50, VCSizeHeight - 150, VCSizeWidth - 100, 100) Items:weakSelf.itemsArray Complete:^(NSInteger tag) {
+            [weakSelf OtherLoginClick:tag];
+        }];
+        [customAreaView addSubview:customView];
+    };
 
 
     [self OneLoginFunc:viewModel GestureRec:sender];
@@ -351,27 +388,13 @@
     viewModel.appLogo = [UIImage imageNamed:@"Shape"];
     viewModel.defaultCheckBoxState = NO;
     viewModel.supportedInterfaceOrientations = UIInterfaceOrientationMaskLandscapeRight;
-    viewModel.viewLifeCycleBlock = ^(NSString *viewLifeCycle, BOOL animated) {
-            
-        if ([viewLifeCycle isEqualToString:@"viewDidDisappear:"]) {
-            sender.enabled = YES;
-            
-//            AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//            appdelegate.allowRotate = 0;
 
-            if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-                if ([[UIDevice currentDevice]   respondsToSelector:@selector(setOrientation:)]) {
-                    SEL selector =  NSSelectorFromString(@"setOrientation:");
-                    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
-                    [invocation setSelector:selector];
-                    [invocation setTarget:[UIDevice currentDevice]];
-                    int val = UIInterfaceOrientationPortrait;
-                    [invocation setArgument:&val atIndex:2];
-                    [invocation invoke];
-                }
-            }
-            
-            
+    viewModel.viewLifeCycleBlock = ^(NSString * _Nonnull viewLifeCycle, BOOL animated) {
+        if ([viewLifeCycle isEqualToString:@"viewDidLoad"]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                sender.enabled = YES;
+            });
         }
     };
 
@@ -393,11 +416,16 @@
     viewModel.popupRect = popupRect;
     viewModel.tapAuthBackgroundBlock = ^{
     };
-    viewModel.viewLifeCycleBlock = ^(NSString *viewLifeCycle, BOOL animated) {
-        if ([viewLifeCycle isEqualToString:@"viewDidDisappear:"]) {
-            sender.enabled = YES;
+    
+    viewModel.viewLifeCycleBlock = ^(NSString * _Nonnull viewLifeCycle, BOOL animated) {
+        if ([viewLifeCycle isEqualToString:@"viewDidLoad"]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                sender.enabled = YES;
+            });
         }
     };
+
 
     [self OneLoginFunc:viewModel GestureRec:sender];
 
@@ -417,51 +445,84 @@
     viewModel.canClosePopupFromTapGesture = YES;
     self.olAuthModel.tapAuthBackgroundBlock = ^{
     };
-    viewModel.viewLifeCycleBlock = ^(NSString *viewLifeCycle, BOOL animated) {
-        if ([viewLifeCycle isEqualToString:@"viewDidDisappear:"]) {
-            sender.enabled = YES;
+    
+    viewModel.viewLifeCycleBlock = ^(NSString * _Nonnull viewLifeCycle, BOOL animated) {
+        if ([viewLifeCycle isEqualToString:@"viewDidLoad"]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                sender.enabled = YES;
+            });
         }
     };
 
     [self OneLoginFunc:viewModel GestureRec:sender];
 }
 
-#pragma mark - one login
+#pragma mark - onelogin
 - (void)OneLoginFunc:(OLAuthViewModel *)viewModel GestureRec:(UIGestureRecognizer *)recoginizer{
     __weak typeof(self) weakSelf = self;
     
-    if ([YPOneLogin isPreGetTokenValidate]) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    if ([YPOneLogin isPreGetTokenValid]) {
         [YPOneLogin requestTokenWithViewController:self viewModel:viewModel completion:^(NSDictionary * _Nullable result) {
-            if ([result[@"status"] integerValue] == 200) {
+            NSInteger status = [result[@"status"] integerValue];
+
+            if (status && status == 200) {// 登录成功
                 NSString *cid = [result objectForKey:@"cid"];
                 DebugLog(@"YPOneLogin requestToken:%@  msg :%@",result,[result valueForKey:@"msg"]);
                 [weakSelf validateCid:cid];
+            }else if(status && status == KYPO_LoginEventCode_Back){// 返回
+                DebugLog(@"back");
+
+            }else if (status && status == KYPO_LoginEventCode_Switch) {// 切换
+                DebugLog(@"switch");
+                [[CommonToastHUD sharedInstance] showTips:@"您点击了切换按钮"];
+            }else {// 异常
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    recoginizer.enabled = YES;
+                });
+                DebugLog(@"error:%@",result[@"msg"]);
+                [[CommonToastHUD sharedInstance] showTips:result[@"msg"]];
             }
+            
         }];
     }else{
         [YPOneLogin preGetTokenWithCompletion:^(NSDictionary * _Nonnull sender) {
-            DebugLog(@"YPOneLogin preGetToken:%@",sender);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.maskIphoneNum = [sender valueForKey:@"number"];
-                recoginizer.enabled = YES;
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-                if ([sender[@"status"] integerValue] == 200) {
-                    [YPOneLogin requestTokenWithViewController:self viewModel:viewModel completion:^(NSDictionary * _Nullable result) {
-                        if ([result[@"status"] integerValue] == 200) {
-                            NSString *cid = [result objectForKey:@"cid"];
-                            DebugLog(@"YPOneLogin requestToken:%@  msg :%@",result,[result valueForKey:@"msg"]);
-                            [weakSelf validateCid:cid];
-                        }
-                    }];
-                }else{
-                    NSString *msg = [sender valueForKey:@"msg"];
-                    [[CommonToastHUD sharedInstance] showTips: [NSString stringWithFormat:@"取号失败：%@",F_QpIsStringValue_Valid(msg)?msg:@"未知异常"]];
-                }
-            });
+            if ([sender[@"status"] integerValue] == 200) {
+                [YPOneLogin requestTokenWithViewController:self viewModel:viewModel completion:^(NSDictionary * _Nullable result) {
+                    NSInteger status = [result[@"status"] integerValue];
+
+                    if (status && status == 200) {// 登录成功
+                        NSString *cid = [result objectForKey:@"cid"];
+                        DebugLog(@"YPOneLogin requestToken:%@  msg :%@",result,[result valueForKey:@"msg"]);
+                        [weakSelf validateCid:cid];
+                    }else if(status && status == KYPO_LoginEventCode_Back){// 返回
+                        DebugLog(@"back");
+
+                    }else if (status && status == KYPO_LoginEventCode_Switch) {// 切换
+                        DebugLog(@"switch");
+                        [[CommonToastHUD sharedInstance] showTips:@"您点击了切换按钮"];
+                    }else {// 异常
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [MBProgressHUD hideHUDForView:self.view animated:YES];
+                            recoginizer.enabled = YES;
+                        });
+                        DebugLog(@"error:%@",result[@"msg"]);
+                        [[CommonToastHUD sharedInstance] showTips:result[@"msg"]];
+                    }
+                    
+                }];
+
+            }else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    recoginizer.enabled = YES;
+                    [[CommonToastHUD sharedInstance] showTips:sender[@"msg"]];
+                });
+            }
         }];
     }
-    
+
 }
 
 //开发者服务器
@@ -524,9 +585,6 @@
     [[IQKeyboardManager sharedManager] setEnable:NO];
     [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
     NSTimeInterval startTime = F_QpCurrentTimeInterval_13;
-    [YPOneLogin cancelAuthViewController:YES Complete:^{
-        
-    }];
 
     YPOneLoginSmsViewModel *smsViewModel = [[YPOneLoginSmsViewModel alloc] init];
     smsViewModel.backImage = [UIImage imageNamed:@"jiantouB"];

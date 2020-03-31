@@ -456,12 +456,6 @@ typedef NS_ENUM(NSInteger, OLPullAuthVCStyle) {
  */
 @property (nullable, nonatomic, strong) UIImage *landscapeBackgroundImage;
 
-#pragma mark - Autolayout
-
-/**
- * 授权页面视图控件自动布局回调
- */
-@property (nullable, nonatomic, copy) OLAuthVCAutoLayoutBlock autolayoutBlock;
 
 #pragma mark - orientationMask
 
@@ -530,17 +524,6 @@ typedef NS_ENUM(NSInteger, OLPullAuthVCStyle) {
 */
 @property (nonatomic, copy) OLTapAuthBackgroundBlock tapAuthBackgroundBlock;
 
-#pragma mark - Loading
-
-/**
- * 授权页面，自定义加载进度条，点击登录按钮之后的回调
- */
-@property (nonatomic, copy, nullable) OLLoadingViewBlock loadingViewBlock;
-
-/**
- * 授权页面，停止自定义加载进度条，调用[OneLogin stopLoading]之后的回调
- */
-@property (nonatomic, copy, nullable) OLStopLoadingViewBlock stopLoadingViewBlock;
 
 #pragma mark - WebViewController Navigation/服务条款页面导航栏
 

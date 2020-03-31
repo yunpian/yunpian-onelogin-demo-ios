@@ -13,10 +13,12 @@
 #import <YYModel.h>
 #import <AFNetworking.h>
 #import <YPOneLogin/YPOneLogin.h>
-
+#import <YPOneLogin/YPOnePass.h>
+#import <YPOneLogin/YPCodeInfo.h>
 
 #import "Strings.h"
 #import "MBProgressHUD.h"
+#import "Vendor/MBProgressHUD/MBProgressHUD.h"
 #import "VerifyService.h"
 #import "QPCFunctionConst.h"
 #import "ToastUtil.h"
@@ -31,6 +33,7 @@
 #import "YPHomeViewController.h"
 #import "YPOneLoginsViewController.h"
 #import "YPOneLoginSuccessViewController.h"
+#import "YPOnePassViewController.h"
 
 
 #endif /* PrefixHeader_pch */
