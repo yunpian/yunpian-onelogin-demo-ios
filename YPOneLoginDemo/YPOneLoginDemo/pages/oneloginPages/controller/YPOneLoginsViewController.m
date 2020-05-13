@@ -472,7 +472,6 @@
                 [weakSelf validateCid:cid];
             }else if(status && status == KYPO_LoginEventCode_Back){// 返回
                 DebugLog(@"back");
-
             }else if (status && status == KYPO_LoginEventCode_Switch) {// 切换
                 DebugLog(@"switch");
                 [[CommonToastHUD sharedInstance] showTips:@"您点击了切换按钮"];
