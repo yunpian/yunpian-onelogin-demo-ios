@@ -152,7 +152,7 @@ typedef void(^OLTapAuthBackgroundBlock)(void);
 typedef void(^OLAuthVCTransitionBlock)(CGSize size, id<UIViewControllerTransitionCoordinator> coordinator, UIView *customAreaView);
 
 /**
- * @abstract 授权页面视图控件自动布局回调，可在该回调中，对控件通过 masonry 或者其他方式进行自动布局，若需要自定义视图，请直接在该回调中添加
+ * @abstract 授权页面视图控件自动布局回调，可在该回调中，对控件通过 masonry 或者其他方式进行自动布局，若需要自定义视图，请直接在该回调中添加，实现该回调后，授权页面所有视图的约束都会被删除，您需要重新设置所有视图的约束
  *
  * authView 为 authContentView 的父视图
  * authContentView 为 authBackgroundImageView、authNavigationView、authLogoView、authPhoneView、authSwitchButton、authLoginButton、authSloganView、authAgreementView、authClosePopupButton 的父视图
@@ -166,7 +166,7 @@ typedef void(^OLAuthVCAutoLayoutBlock)(UIView *authView, UIView *authContentView
 /**
  * @abstract 进入授权页面的方式，默认为 modal 方式，即 present 到授权页面，从授权页面进入服务条款页面的方式与此保持一致
  *
- * @discussion push 模式不支持弹窗
+ * @discussion push 模式时，不支持弹窗模式，进入授权页面时，会隐藏导航栏，退出授权页面时，会显示导航栏，如果您进入授权页面的当前页面导航栏为隐藏状态，在授权页面消失时，请注意将导航栏隐藏
  */
 typedef NS_ENUM(NSInteger, OLPullAuthVCStyle) {
     OLPullAuthVCStyleModal,
@@ -259,7 +259,7 @@ typedef NS_ENUM(NSInteger, OLPullAuthVCStyle) {
 @property (nullable, nonatomic, strong) UIFont *phoneNumFont;
 
 /**
- 号码预览 位置及大小，电话号码不支持设置大小，大小根据电话号码文字自适应
+ 号码预览 位置及大小
  */
 @property (nonatomic, assign) OLRect phoneNumRect;
 
@@ -422,6 +422,11 @@ typedef NS_ENUM(NSInteger, OLPullAuthVCStyle) {
  */
 @property (nonatomic, assign) BOOL hasQuotationMarkOnCarrierProtocol;
 
+/**
+ * 未勾选勾选框时，是否禁止一键登录按钮的点击
+ */
+@property (nonatomic, assign) BOOL disableAuthButtonWhenUnchecked;
+
 #pragma mark - Custom Area/自定义区域
 
 /**
@@ -456,8 +461,14 @@ typedef NS_ENUM(NSInteger, OLPullAuthVCStyle) {
  */
 @property (nullable, nonatomic, strong) UIImage *landscapeBackgroundImage;
 
+#pragma mark - Autolayout
 
-#pragma mark - orientationMask
+/**
+ * 授权页面视图控件自动布局回调
+ */
+@property (nullable, nonatomic, copy) OLAuthVCAutoLayoutBlock autolayoutBlock;
+
+#pragma mark - orientation
 
 /**
  * 授权页面支持的横竖屏方向
@@ -520,10 +531,26 @@ typedef NS_ENUM(NSInteger, OLPullAuthVCStyle) {
 @property (nonatomic, assign) BOOL canClosePopupFromTapGesture;
 
 /**
-* 点击授权页面弹窗背景的回调
-*/
-@property (nonatomic, copy) OLTapAuthBackgroundBlock tapAuthBackgroundBlock;
+ * 点击授权页面弹窗背景的回调
+ */
+@property (nonatomic, copy, nullable) OLTapAuthBackgroundBlock tapAuthBackgroundBlock;
 
+/**
+ * 弹窗蒙板视图
+ */
+@property (nonatomic, strong, nullable) UIView *popupMaskView;
+
+#pragma mark - Loading
+
+/**
+ * 授权页面，自定义加载进度条，点击登录按钮之后的回调
+ */
+@property (nonatomic, copy, nullable) OLLoadingViewBlock loadingViewBlock;
+
+/**
+ * 授权页面，停止自定义加载进度条，调用[OneLogin stopLoading]之后的回调
+ */
+@property (nonatomic, copy, nullable) OLStopLoadingViewBlock stopLoadingViewBlock;
 
 #pragma mark - WebViewController Navigation/服务条款页面导航栏
 
@@ -581,6 +608,18 @@ typedef NS_ENUM(NSInteger, OLPullAuthVCStyle) {
  * @abstract 进入授权页面的方式，默认为 modal 方式，即 present 到授权页面，从授权页面进入服务条款页面的方式与此保持一致
  */
 @property (nonatomic, assign) OLPullAuthVCStyle pullAuthVCStyle;
+
+#pragma mark - UIUserInterfaceStyle
+
+/**
+ * @abstract 授权页面 UIUserInterfaceStyle，iOS 12 及以上系统，默认为 UIUserInterfaceStyleLight
+ *
+ * UIUserInterfaceStyle
+ * UIUserInterfaceStyleUnspecified - 不指定样式，跟随系统设置进行展示
+ * UIUserInterfaceStyleLight       - 明亮
+ * UIUserInterfaceStyleDark        - 暗黑 仅对 iOS 13+ 系统有效
+ */
+@property (nonatomic, strong) NSNumber *userInterfaceStyle;
 
 @end
 

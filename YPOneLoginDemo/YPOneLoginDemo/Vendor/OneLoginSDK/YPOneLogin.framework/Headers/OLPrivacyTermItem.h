@@ -2,8 +2,8 @@
 //  OLPrivacyTermsItem.h
 //  OneLoginSDK
 //
-//  Created by daizq on 2019/5/14.
-//  Copyright © 2019 QiPeng. All rights reserved.
+//  Created by NikoXu on 2019/6/4.
+//  Copyright © 2019 geetest. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -20,7 +20,7 @@ typedef void(^OLViewPrivacyTermItemBlock)(OLPrivacyTermItem *termItem, UIViewCon
 /**
  条款标题
  */
-@property (nonatomic, strong) NSString *termTitle;
+@property (nonatomic, copy) NSString *termTitle;
 
 /**
  条款链接

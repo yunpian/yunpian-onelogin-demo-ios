@@ -30,11 +30,10 @@
 		F3463AF82386409600DF8E70 /* YPDeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F3463AF72386409600DF8E70 /* YPDeviceUtil.m */; };
 		F3463AFB23864AC500DF8E70 /* YPKeychainStoreUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F3463AFA23864AC500DF8E70 /* YPKeychainStoreUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F36FB8FC2382A13200177ED9 /* TypesFormUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F36FB8FB2382A13200177ED9 /* TypesFormUtil.m */; };
-		F37B830B24336FB900E2E3E6 /* YPOneLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37B830A24336FB900E2E3E6 /* YPOneLogin.framework */; };
 		F3937B23242A0D6E007F6023 /* YPOnePassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3937B22242A0D6E007F6023 /* YPOnePassViewController.m */; };
-		F3937B2D242B4FFF007F6023 /* YPOneLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3937B2C242B4FFF007F6023 /* YPOneLogin.framework */; };
 		F3B97A41237D25DC009E4824 /* ToastUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B97A40237D25DC009E4824 /* ToastUtil.m */; };
 		F3B97A44237D27E1009E4824 /* NSDictionary+changeNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B97A43237D27E1009E4824 /* NSDictionary+changeNSString.m */; };
+		F3BCD8DF2489F11900C566BA /* YPOneLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BCD8DE2489F11900C566BA /* YPOneLogin.framework */; };
 		F3D39246239518CD00BB5715 /* TYRZSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3D39245239518CD00BB5715 /* TYRZSDK.framework */; };
 		F3E6C07C2391104A00AFF263 /* OneLoginResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3E6C07A2391104A00AFF263 /* OneLoginResource.bundle */; };
 		F3F74BFC23BF115C00280B07 /* YPRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F74BE523BF115C00280B07 /* YPRootViewController.m */; };
@@ -115,7 +114,6 @@
 		F35FB380237ABF24004B53F3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F36FB8FA2382A13200177ED9 /* TypesFormUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypesFormUtil.h; sourceTree = "<group>"; };
 		F36FB8FB2382A13200177ED9 /* TypesFormUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TypesFormUtil.m; sourceTree = "<group>"; };
-		F37B830A24336FB900E2E3E6 /* YPOneLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YPOneLogin.framework; path = OneLoginSDK/YPOneLogin.framework; sourceTree = "<group>"; };
 		F3937B21242A0D6E007F6023 /* YPOnePassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPOnePassViewController.h; sourceTree = "<group>"; };
 		F3937B22242A0D6E007F6023 /* YPOnePassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPOnePassViewController.m; sourceTree = "<group>"; };
 		F3937B2C242B4FFF007F6023 /* YPOneLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YPOneLogin.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/MobileAuthDevelop-dcplffsivzloscgqtduqxeglhmzn/Build/Products/Release-iphoneos/YPOneLogin.framework"; sourceTree = "<group>"; };
@@ -123,6 +121,7 @@
 		F3B97A40237D25DC009E4824 /* ToastUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToastUtil.m; sourceTree = "<group>"; };
 		F3B97A42237D27E1009E4824 /* NSDictionary+changeNSString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+changeNSString.h"; sourceTree = "<group>"; };
 		F3B97A43237D27E1009E4824 /* NSDictionary+changeNSString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+changeNSString.m"; sourceTree = "<group>"; };
+		F3BCD8DE2489F11900C566BA /* YPOneLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YPOneLogin.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/MobileAuthDevelop-dcplffsivzloscgqtduqxeglhmzn/Build/Products/Debug-iphoneos/YPOneLogin.framework"; sourceTree = "<group>"; };
 		F3D39245239518CD00BB5715 /* TYRZSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TYRZSDK.framework; sourceTree = "<group>"; };
 		F3E6C07A2391104A00AFF263 /* OneLoginResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = OneLoginResource.bundle; sourceTree = "<group>"; };
 		F3F74BE423BF115C00280B07 /* SuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuccessViewController.h; sourceTree = "<group>"; };
@@ -151,9 +150,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3937B2D242B4FFF007F6023 /* YPOneLogin.framework in Frameworks */,
 				AEF0CB33229FBC3100B0058F /* libz.1.2.8.tbd in Frameworks */,
-				F37B830B24336FB900E2E3E6 /* YPOneLogin.framework in Frameworks */,
+				F3BCD8DF2489F11900C566BA /* YPOneLogin.framework in Frameworks */,
 				AEF0CB31229FBC2900B0058F /* libc++.1.tbd in Frameworks */,
 				C7C4857EBC5144B2594F8C96 /* libPods-YPOneLoginDemo.a in Frameworks */,
 				F3D39246239518CD00BB5715 /* TYRZSDK.framework in Frameworks */,
@@ -189,7 +187,7 @@
 		AE0879CB2294F3710060D4ED /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				F37B830A24336FB900E2E3E6 /* YPOneLogin.framework */,
+				F3BCD8DE2489F11900C566BA /* YPOneLogin.framework */,
 				AE087A1C229528090060D4ED /* OneLoginSDK */,
 				AE0879CD2294F3BC0060D4ED /* MBProgressHUD */,
 			);
@@ -806,7 +804,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D9875AYV64;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -826,7 +824,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -874,7 +872,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D9875AYV64;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -894,7 +892,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

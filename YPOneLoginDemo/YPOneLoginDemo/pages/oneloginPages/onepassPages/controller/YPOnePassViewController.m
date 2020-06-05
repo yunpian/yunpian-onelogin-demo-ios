@@ -15,7 +15,7 @@
 
 
 
-@interface YPOnePassViewController ()<UITextFieldDelegate,UITextInput>
+@interface YPOnePassViewController ()<UITextFieldDelegate>
 
 @property (nonatomic, strong) UIView *logoView;
 
@@ -319,6 +319,7 @@
                     } else {
                         [vc.navigationController popViewControllerAnimated:YES];
                     }
+                    self->_yp_manager = [[YPOnePass alloc] initWithAppId:AppIDKey timeout:3];
                     break;
                 }
                 case 11000 + 1://微信
@@ -358,7 +359,12 @@
                 [self.navigationController pushViewController:vc animated:YES];
             });
         }else{
-            [[CommonToastHUD sharedInstance] showTips:@"验证码错误"];
+            NSString *msg = result[@"msg"];
+            if ([msg isEqualToString:@"cancel"]) {// 点击返回,重新初始化
+                self->_yp_manager = [[YPOnePass alloc] initWithAppId:AppIDKey timeout:3];
+            }else{
+                [[CommonToastHUD sharedInstance] showTips:@"验证码错误"];
+            }
         }
     }];
 }
@@ -371,12 +377,11 @@
 
 #pragma mark - textFildDelegate
 
-
 - (void)textFieldDidEndEditing:(UITextField *)textField{
 
     self.iphoneNumStr = [textField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
 
-    if (textField.text.length >= 11 && [textField.text isPhoneNumber]) {
+    if (self.iphoneNumStr.length >= 11 && [self.iphoneNumStr isPhoneNumber]) {
         _verifyBtn.backgroundColor = Blue0Color;
         _verifyBtn.userInteractionEnabled = YES;
     }else{

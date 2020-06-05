@@ -13,7 +13,7 @@
 
 - (BOOL)isPhoneNumber
 {
-    return [self match:@"^1[3578]\\d{9}$"];
+    return [self match:@"^1[35789]\\d{9}$"];
     
 }
 

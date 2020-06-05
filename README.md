@@ -37,7 +37,7 @@
 
 ### pod 方式添加库
 ```
-pod 'YPOneLogin', '~>2.1.0'
+pod 'YPOneLogin'
 ```
 ### 手动添加一键登录 SDK
 ### 2.1. 导入YPOneLogin的库和资源
